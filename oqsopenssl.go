@@ -87,7 +87,7 @@ func SignCertificate(csrFile, caCertFile, caKeyFile, spiffeID, outputFile string
 
 // StartServer starts the OpenSSL server with the specified certificate and key.
 func StartServer(certFile string, keyFile string, caFile string) (*exec.Cmd, io.WriteCloser, io.ReadCloser, error) {
-	cmd := exec.Command("openssl", "s_server", "-accept", "4433", "-state", "-cert", certFile, "-key", keyFile, "-tls1_3", "-Verify", "1", "-CAfile", caFile, "-www")
+	cmd := exec.Command("openssl", "s_server", "-accept", "4433", "-state", "-cert", certFile, "-key", keyFile, "-tls1_3", "-Verify", "1", "-CAfile", caFile)
 
 	// Create the StdoutPipe before starting the command
 	stdoutPipe, err := cmd.StdoutPipe()
